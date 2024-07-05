@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: sans-serif;
+	//text-align: center;
+	font-family: "Lato", sans-serif;
+}
+
+.mainhero {
+	background-image: url("/assets/cab01fe07f39f658ad46cb97b9b9c570.jpg");
+}
