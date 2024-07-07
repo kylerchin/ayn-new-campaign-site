@@ -43,10 +43,31 @@ pub fn App() -> impl IntoView {
 #[component]
 fn Footer() -> impl IntoView {
     view!{
-        <div class="w-full bg-octablue text-white text-center py-8">
-            <div class="py-2 py-8 border-white border-2 mx-auto">"Paid for by Ayn Craciun for Council 2024 FPPC #1464914"</div>
+        <div class="w-full bg-octablue text-white text-center py-8 flex flex-col items-center px-8">
+            <div class="py-2 lg:py-6 px-2 border-white border-2 mx-auto lg:w-1/2">"Paid for by Ayn Craciun for Council 2024 FPPC #1464914"</div>
 
             <p>"For campaign inquires please contact: ayn@ayn4irvine.com"</p>
+        </div>
+    }
+}
+
+#[component]
+fn EndorsementHome() -> impl IntoView {
+    view!{
+        <div class="w-full">
+            
+        </div>
+    }
+}
+
+#[component]
+fn WhyAynHome() -> impl IntoView {
+    view! {
+        <div class="w-full flex flex-col md:flex-row">
+            <img src="/assets/ayn-speech.jpg" class="w-full md:w-1/3 aspect-[4/3]"/>
+            <div class="py-16">
+                <p>"Why Ayn"</p>
+            </div>
         </div>
     }
 }
@@ -58,11 +79,24 @@ fn HomePage() -> impl IntoView {
 
     view! {
         <div
-       class="mainhero w-full bg-center bg-cover py-64"
+       class="mainhero w-full bg-center text-white bg-cover py-64"
         >
-        <h1 class="text-lg text-white md:ml-1/4">"Vote for Ayn Craciun for
+        <div class="w-1/2 ml-8 md:ml-16 lg:ml-32 2xl:ml-64 md:w-96">
+        <h1 class="text-xl md:text-2xl font-bold text-white">"Vote for Ayn Craciun for
         Irvine City Council"</h1>
+        <p class="text-white">"Ayn is an environmental health advocate, working mom, and Democrat ready to deliver results for Irvine families."</p>
+        
+        <div class="flex flex-row mt-2 gap-x-2">
+            <div class="font-bold bg-octaorange text-white px-4 py-2 rounded-md">"Volunteer"</div>
+            <div class="font-bold text-octaorange bg-white px-4 py-2 rounded-md">"Donate"</div>
         </div>
+
+        </div>
+        </div>
+
+        <WhyAynHome/>
+        <EndorsementHome/>
+        
         <Footer/>
     }
 }
@@ -85,6 +119,7 @@ fn NotFound() -> impl IntoView {
     }
 
     view! {
-        <h1>"Not Found"</h1>
+        <h1>"Ooops! We couldn't find this page!"</h1>
+        <p>"Perhaps it is wherever Mike Carroll is as well?"</p>
     }
 }
