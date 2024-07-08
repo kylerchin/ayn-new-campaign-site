@@ -33,6 +33,7 @@ pub fn App() -> impl IntoView {
             <main>
                 <Routes>
                     <Route path="" view=HomePage/>
+                    <Route path="meet-ayn" view=WhyAynPage/>
                     <Route path="/*any" view=NotFound/>
                 </Routes>
             </main>
@@ -106,7 +107,7 @@ fn EndorsementHome() -> impl IntoView {
 fn WhyAynHome() -> impl IntoView {
     view! {
         <div class="w-full flex flex-col md:flex-row">
-            <img class="w-full md:w-2/5 why-ayn-img bg-center bg-cover"/>
+            <img class="w-full aspect-video md:aspect-auto md:w-2/5 why-ayn-img bg-center bg-cover"/>
             <div class="py-16 px-32 md:w-3/5">
                 <p class="text-lg font-bold">"Why Ayn"</p>
                 <p>
@@ -115,9 +116,52 @@ fn WhyAynHome() -> impl IntoView {
                 <p>"Ayn has a well-established track record of speaking truth to power and winning change that brings lasting benefits to our community -- especially families. Ayn will focus city resources on actions that make our streets safer, our air cleaner, reduce traffic and increase affordable, climate-friendly housing and energy."</p>
            
                 <br/>
-                <p class="text-octaorange">"Learn more about Ayn > "</p>
+               <a class="hover:underline" href="/meet-ayn"><button class="bg-octablue text-white hover:bg-blue-500 font-bold py-2 px-2 rounded-lg">"Learn more about Ayn"</button> </a>
             </div>
         </div>
+    }
+}
+
+#[component]
+fn WhyAynPage() -> impl IntoView {
+    view!{
+
+        <div class="text-2xl">"About Ayn"</div>
+        <div class="flex flex-col md:flex-row w-full sm:w-auto">
+        <div>
+        <img src={"/assets/AynFull@KorinnePhoto-9.jpg"}
+        />
+        </div>
+       <div class="px-16">
+       
+       <p>"Ayn Craciun is a proven community leader, environmental health advocate,  successful business woman, and working mom. Ayn has a well-established track record of winning changes that protect our health and bring lasting community benefits."
+        </p>
+        <br/>
+        <p>"Ayn is a Democrat who believes our government should reflect and serve the needs of the people and small businesses, not special interests or corporate donors. Ayn has spoken out against corruption in local public agencies, and in 2023 the Orange County Register named Ayn among the most influential people in Orange County."</p>
+        <br/>  <p>
+       "Ayn chairs of the City of Irvine Sustainability Commission, and is the OC Policy Director for a nonprofit climate policy watchdog that provides transparency and accountability on climate action by local governments. Ayn played a pivotal role in creating the Orange County Power Authority, bringing clean energy choice to OC for the first time ever. Ayn also helped win Irvine's policy to end the use of harmful fossil gas in new buildings -- a first in OC, and the recently approved ban on noisy, polluting gas-powered leaf blowers in the city."
+       </p>
+       <br/>
+        <p>
+        "Ayn is also an advocate for safe, climate-friendly transportation. In 2023, she helped University High School parents win safe bus transportation for southeast Irvine kids to University High School for the first time ever."
+        </p>
+        <br/>
+        <p>
+        "In 2016, after learning that three Quail Hill children had been diagnosed with brain tumors, Ayn partnered with other parents and UCI scientists to found Non Toxic Irvine and win an organic landscaping policy for the City of Irvine, which was recognized for excellence by the California Environmental Protection Agency. Ayn wrote a how-to guide and helped people from all over the U.S., other OC cities and several Irvine HOAs including Hidden Canyon and Laguna Altura win organic landscaping policies for their communities. "
+        </p>
+        <br/>
+        <p>
+        "Ayn works in coalition with dozens of environmental, small businesses, religious, and community organizations in support of critical local climate policy decisions. She believes everyone deserves safety and equality, and will fight to protect the freedom of people of all races, ethnicities, religions, sexual orientations and gender identities."</p>
+        <br/>
+        <p>"Ayn served as president of her HOA for four years, ensuring a balanced budget and well-managed community services throughout her leadership. Ayn is also a past president of the Southeast Irvine MOMS club, former PTA committee chair, and frequent room mom at her kids’ elementary school."</p>
+        <br/>
+        <p>"Ayn and her husband Joe, an attorney and small business owner, have lived in Quail Hill for 20 years. Their two adorable school-aged children attend Irvine public schools."</p>
+       </div>
+
+       </div>
+
+       <Footer/>
+
     }
 }
 
