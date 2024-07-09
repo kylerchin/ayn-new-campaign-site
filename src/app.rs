@@ -10,7 +10,7 @@ pub fn Navbar() -> impl IntoView {
 
     view!{
         <div class="flex flex-row h-16 py-2 px-4">
-            <img src="/assets/ayn-logo.jpeg"/>
+           <a href="/"> <img src="/assets/ayn-logo.jpeg"/></a>
 
             <div class="md:hidden my-auto  ml-auto" on:click={move |_| set_navbar_open.update(|value| {
                 *value = value.not();
