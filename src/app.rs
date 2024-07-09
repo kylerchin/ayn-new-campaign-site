@@ -21,7 +21,7 @@ menu
             </div>
 
             <div class="ml-auto flex-row gap-x-3 align-middle items-center hidden md:flex">
-                <a href="/why-ayn">"About Ayn"</a>
+                <a href="/meet-ayn">"About Ayn"</a>
                 <a href="/endorsements">"Endorsements"</a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
                 <a href="https://www.efundraisingconnections.com/c/AynCraciun">
