@@ -5,48 +5,47 @@ use std::ops::Not;
 
 #[component]
 pub fn Navbar() -> impl IntoView {
-
     let (navbar_open, set_navbar_open) = create_signal(false);
 
-    view!{
-        <div class="flex flex-row h-16 py-2 px-4">
-           <a href="/" class=""> <img class="h-14" src="/assets/ayn-logo.jpeg" alt="Ayn for Irvine City Council Logo"/></a>
+    view! {
+            <div class="flex flex-row h-16 py-2 px-4">
+               <a href="/" class=""> <img class="h-14" src="/assets/ayn-logo.jpeg" alt="Ayn for Irvine City Council Logo"/></a>
 
-            <div class="md:hidden my-auto  ml-auto" on:click={move |_| set_navbar_open.update(|value| {
-                *value = value.not();
-            })}>
-            <span class="material-symbols-outlined text-gray-900">
-menu
-</span>
+                <div class="md:hidden my-auto  ml-auto" on:click={move |_| set_navbar_open.update(|value| {
+                    *value = value.not();
+                })}>
+                <span class="material-symbols-outlined text-gray-900">
+    menu
+    </span>
+                </div>
+
+                <div class="ml-auto flex-row gap-x-3 align-middle items-center hidden md:flex">
+                    <a href="/meet-ayn">"About Ayn"</a>
+                    <a href="/endorsements">"Endorsements"</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
+                    <a href="https://www.efundraisingconnections.com/c/AynCraciun">
+                <div class="font-bold bg-octaorange text-white px-3 py-1.5 rounded-md">"Donate"</div>
+                </a>
+                </div>
+
             </div>
 
-            <div class="ml-auto flex-row gap-x-3 align-middle items-center hidden md:flex">
-                <a href="/meet-ayn">"About Ayn"</a>
-                <a href="/endorsements">"Endorsements"</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
-                <a href="https://www.efundraisingconnections.com/c/AynCraciun">
-            <div class="font-bold bg-octaorange text-white px-3 py-1.5 rounded-md">"Donate"</div>
-            </a>
-            </div>
+            {
+                move || if navbar_open.get() {
+                    view!{
+                        <div class="flex flex-col gap-y-2 underline px-4">
+                        <a href="/why-ayn" class="hover:text-blue-800">"About Ayn"</a>
+                    <a href="/endorsements"  class="hover:text-blue-800">"Endorsements"</a>
+                    <a  class="hover:text-blue-800" href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
+                    <a  class="hover:text-blue-800" href="https://www.efundraisingconnections.com/c/AynCraciun">"Donate"</a></div>
 
-        </div>
-
-        {
-            move || if navbar_open.get() {
-                view!{
-                    <div class="flex flex-col gap-y-2 underline px-4">
-                    <a href="/why-ayn" class="hover:text-blue-800">"About Ayn"</a>
-                <a href="/endorsements"  class="hover:text-blue-800">"Endorsements"</a>
-                <a  class="hover:text-blue-800" href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
-                <a  class="hover:text-blue-800" href="https://www.efundraisingconnections.com/c/AynCraciun">"Donate"</a></div> 
-                
-            }
-        } else {
-            view!{<div></div>}
+                }
+            } else {
+                view!{<div></div>}
+                    }
                 }
             }
-        }
-    }
+}
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -54,35 +53,35 @@ pub fn App() -> impl IntoView {
     provide_meta_context();
 
     view! {
-        // injects a stylesheet into the document <head>
-        // id=leptos means cargo-leptos will hot-reload this stylesheet
-        <Stylesheet id="leptos" href="/pkg/ayn-new-campaign-site.css"/>
-        <link rel="icon" href="/assets/ayn-favicon.png"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"/>
+            // injects a stylesheet into the document <head>
+            // id=leptos means cargo-leptos will hot-reload this stylesheet
+            <Stylesheet id="leptos" href="/pkg/ayn-new-campaign-site.css"/>
+            <link rel="icon" href="/assets/ayn-favicon.png"/>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"/>
 
-        // sets the document title
-        <Title text="Ayn Craciun, Democrat & Environmental Health Advocate for Irvine City Council"/>
+            // sets the document title
+            <Title text="Ayn Craciun, Democrat & Environmental Health Advocate for Irvine City Council"/>
 
-        // content for this welcome page
-        <Router>
-            <main>
-                <Routes>
-                    <Route path="" view=HomePage/>
-                    <Route path="meet-ayn" view=WhyAynPage/>
-                    <Route path="/*any" view=NotFound/>
-                    <Route path="/endorsements" view=EndorsementPage/>
-                </Routes>
-            </main>
-        </Router>
-    }
+            // content for this welcome page
+            <Router>
+                <main>
+                    <Routes>
+                        <Route path="" view=HomePage/>
+                        <Route path="meet-ayn" view=WhyAynPage/>
+                        <Route path="/*any" view=NotFound/>
+                        <Route path="/endorsements" view=EndorsementPage/>
+                    </Routes>
+                </main>
+            </Router>
+        }
 }
 
 #[component]
 fn Footer() -> impl IntoView {
-    view!{
+    view! {
         <div class="w-full bg-octablue text-white text-center py-8 flex flex-col items-center px-8">
             <div class="py-2 lg:py-6 px-2 border-white border-2 mx-auto lg:w-1/2">"Paid for by Ayn Craciun for Council 2024 FPPC #1464914"</div>
 
@@ -93,150 +92,150 @@ fn Footer() -> impl IntoView {
 
 #[component]
 fn EndorsementPage() -> impl IntoView {
-    view!{
-        <Navbar/>
+    view! {
+            <Navbar/>
 
-        <div class="mx-4 md:mx-12">
-        <p class="text-octaorange text-2xl">"Endorsements"</p>
-        <p class="text-octaorange text-lg">"Elected Officials"</p>
-        <div>
-   <ul>
-   
-   <li>
-   "Katie Porter, U.S. Congresswoman"
-   </li>
-<li>
-   "Anthony Rendon, California Assembly Speaker Emeritus"
-   </li>
-<li>
-   "Cottie Petrie-Norris, California Assembly Member "
-   </li>
-<li>
+            <div class="mx-4 md:mx-12">
+            <p class="text-octaorange text-2xl">"Endorsements"</p>
+            <p class="text-octaorange text-lg">"Elected Officials"</p>
+            <div>
+       <ul>
 
-
-       "Kathleen Treseder, Irvine City Council Member & UC Irvine Professor "
+       <li>
+       "Katie Porter, U.S. Congresswoman"
        </li>
-<li>
-       "Tammy Kim, Irvine City Council Member "
+    <li>
+       "Anthony Rendon, California Assembly Speaker Emeritus"
        </li>
-<li>
-   "Sue Kempf, Laguna Beach Mayor "
-   </li>
-<li>
-   "Alex Rounaghi, Laguna Beach Council Member "
-   </li>
-<li>
-   "John Stephens, Costa Mesa Mayor"
-   </li>
-<li>
-   "Arlis Reynolds, Costa Mesa Council Member "
-   </li>
-<li>
-   "Manuel Chavez, Costa Mesa Council Member "
-   </li>
-<li>
-   "Natalie Moser, Huntington Beach Council Member "
-   </li>
-<li>
-   "Dr. Shana Charles, Fullerton Council Member & CSUF Professor "
-   </li>
-<li>
-   "Connor Traut, Buena Park Council Member"
-   </li>
-<li>
-   "Jose Trinidad Castaneda, Buena Park Councilmember "
-   </li>
-<li>
-   "Ahmad Zahra, Fullerton Council Member "
-   </li>
-<li>
-   "Stephanie Oddo, Laguna Niguel Council Member "
-   </li>
-<li>
-   "Allyson Damikolas, Tustin Unified School District Trustee"
-   </li>
-<li>
-   "Kris Erickson, Orange Unified School District Trustee"
-   </li>
-<li>
-   "Ryan Dack, South Orange County Community College District Board Member "
-   </li>
-<li>
-"Carolyn Inmon, South Orange County Community College District Board Member"</li>
-   </ul>
-        </div>
-        
-        
-        <p class="text-octaorange text-lg">"Elected Officials"</p>
+    <li>
+       "Cottie Petrie-Norris, California Assembly Member "
+       </li>
+    <li>
 
-        <div>
-        
-        <li>"Democratic Party of Orange County"</li>
 
-        <li>"Moms Demand Action"</li>
+           "Kathleen Treseder, Irvine City Council Member & UC Irvine Professor "
+           </li>
+    <li>
+           "Tammy Kim, Irvine City Council Member "
+           </li>
+    <li>
+       "Sue Kempf, Laguna Beach Mayor "
+       </li>
+    <li>
+       "Alex Rounaghi, Laguna Beach Council Member "
+       </li>
+    <li>
+       "John Stephens, Costa Mesa Mayor"
+       </li>
+    <li>
+       "Arlis Reynolds, Costa Mesa Council Member "
+       </li>
+    <li>
+       "Manuel Chavez, Costa Mesa Council Member "
+       </li>
+    <li>
+       "Natalie Moser, Huntington Beach Council Member "
+       </li>
+    <li>
+       "Dr. Shana Charles, Fullerton Council Member & CSUF Professor "
+       </li>
+    <li>
+       "Connor Traut, Buena Park Council Member"
+       </li>
+    <li>
+       "Jose Trinidad Castaneda, Buena Park Councilmember "
+       </li>
+    <li>
+       "Ahmad Zahra, Fullerton Council Member "
+       </li>
+    <li>
+       "Stephanie Oddo, Laguna Niguel Council Member "
+       </li>
+    <li>
+       "Allyson Damikolas, Tustin Unified School District Trustee"
+       </li>
+    <li>
+       "Kris Erickson, Orange Unified School District Trustee"
+       </li>
+    <li>
+       "Ryan Dack, South Orange County Community College District Board Member "
+       </li>
+    <li>
+    "Carolyn Inmon, South Orange County Community College District Board Member"</li>
+       </ul>
+            </div>
 
-        <li>"OC Action"</li>
 
-        <li>"Sunrise Movement, Orange County"</li>
+            <p class="text-octaorange text-lg">"Elected Officials"</p>
 
-        <li>"RISE (Remake Irvine Streets for Everyone)"</li>
+            <div>
 
-        <li>"Branda Lin, City of Irvine Planning Commissioner and Irvine Watchdog Co-founder"</li>
+            <li>"Democratic Party of Orange County"</li>
 
-        <li>"Dr. Jessica Pratt, UCI professor and Irvine resident"</li>
+            <li>"Moms Demand Action"</li>
 
-        <li>"Libby Wong Sawtell, attorney and Irvine resident"</li>
+            <li>"OC Action"</li>
 
-        <li>"Dr. Vasanthi Narayan, physician and Quail Hill resident"</li>
+            <li>"Sunrise Movement, Orange County"</li>
 
-        <li>"Dr. Jessica Walden, owner/operator Amis de la Terre Zero Waste Market"</li>
+            <li>"RISE (Remake Irvine Streets for Everyone)"</li>
 
-        <li>"Susan Sayre, City of Irvine Wall of Recognition Honoree and governance watchdog"</li>
+            <li>"Branda Lin, City of Irvine Planning Commissioner and Irvine Watchdog Co-founder"</li>
 
-        <li>"Matthew Chang, Climate Garden"</li>
+            <li>"Dr. Jessica Pratt, UCI professor and Irvine resident"</li>
 
-        <li>"Melisa Masri, Science Teacher/dept head and Irvine resident"</li>
+            <li>"Libby Wong Sawtell, attorney and Irvine resident"</li>
 
-        <li>"Youssef Kaddeche, Irvine Transportation Commissioner"</li>
+            <li>"Dr. Vasanthi Narayan, physician and Quail Hill resident"</li>
 
-        <li>"Bob Dougherty, former Treasurer Quail Hill Community Association"</li>
+            <li>"Dr. Jessica Walden, owner/operator Amis de la Terre Zero Waste Market"</li>
 
-        <li>"Christine Byrd, HOA and school board member and Quail Hill resident"</li>
+            <li>"Susan Sayre, City of Irvine Wall of Recognition Honoree and governance watchdog"</li>
 
-        <li>"Dr. Julie K. Hirota, physician and Quail Hill resident"</li>
+            <li>"Matthew Chang, Climate Garden"</li>
 
-        <li>"Naz Hamid, Chair, City of Irvine Community Services Commission"
-        </li>
-<li>"Vi Thuy Nguyen MD, Pediatrician and Climate and Health Advocate
-"</li>
-<li>"Dr. Marie-Helene Luebbers "</li>
-<li>"Jeremy Ficarola, President, Cypress Village HOA"</li>
-<li>"Meredith Marquis, Chief of Staff"</li>
-<li>"Matthew Kramer, Quail Hill Resident"</li>
-<li>"Dr. Amy King-Henry, Lecturer in Ecology and Evolutionary Biology, UC Irvine"</li>
-<li>"Doug Elliott, Community Services Commissioner and Westpark II resident"</li>
-<li>"Judie Mancuso, Founder/CEO/President, Social Compassion in Legislation"</li>
-<li>"Lamar Kirchhevel, Medical Device R&D Engineer & Climate Activist"</li>
-<li>"Dr. Glenton Jelbert, PhD Cantab"</li>
-<li>"Gary M. Stewart, MD, Internal Medicine, and Citizens' Climate Lobby media manager, Laguna Chapter"</li>
-<li>"Harry Field, Retired Attorney"</li>
-<li>"Jake Comer, Civil Engineer and OC Climate Voter Guide Member"</li>
-<li>"Ken Montgomery, Chair Irvine Transportation Commission "</li>
-<li>"Dr. Ying Song, Engineer and Irvine resident"</li>
-<li>"Deeti Shah, Environmental Science and Policy student, Fridays for Future Orange County Co-organizer"</li>
-<li>"Taryn Williams, PhD candidate and Irvine DEI committee member"</li>
+            <li>"Melisa Masri, Science Teacher/dept head and Irvine resident"</li>
 
-        </div>
-        
-        </div>
+            <li>"Youssef Kaddeche, Irvine Transportation Commissioner"</li>
 
-        <Footer/>
-    }
+            <li>"Bob Dougherty, former Treasurer Quail Hill Community Association"</li>
+
+            <li>"Christine Byrd, HOA and school board member and Quail Hill resident"</li>
+
+            <li>"Dr. Julie K. Hirota, physician and Quail Hill resident"</li>
+
+            <li>"Naz Hamid, Chair, City of Irvine Community Services Commission"
+            </li>
+    <li>"Vi Thuy Nguyen MD, Pediatrician and Climate and Health Advocate
+    "</li>
+    <li>"Dr. Marie-Helene Luebbers "</li>
+    <li>"Jeremy Ficarola, President, Cypress Village HOA"</li>
+    <li>"Meredith Marquis, Chief of Staff"</li>
+    <li>"Matthew Kramer, Quail Hill Resident"</li>
+    <li>"Dr. Amy King-Henry, Lecturer in Ecology and Evolutionary Biology, UC Irvine"</li>
+    <li>"Doug Elliott, Community Services Commissioner and Westpark II resident"</li>
+    <li>"Judie Mancuso, Founder/CEO/President, Social Compassion in Legislation"</li>
+    <li>"Lamar Kirchhevel, Medical Device R&D Engineer & Climate Activist"</li>
+    <li>"Dr. Glenton Jelbert, PhD Cantab"</li>
+    <li>"Gary M. Stewart, MD, Internal Medicine, and Citizens' Climate Lobby media manager, Laguna Chapter"</li>
+    <li>"Harry Field, Retired Attorney"</li>
+    <li>"Jake Comer, Civil Engineer and OC Climate Voter Guide Member"</li>
+    <li>"Ken Montgomery, Chair Irvine Transportation Commission "</li>
+    <li>"Dr. Ying Song, Engineer and Irvine resident"</li>
+    <li>"Deeti Shah, Environmental Science and Policy student, Fridays for Future Orange County Co-organizer"</li>
+    <li>"Taryn Williams, PhD candidate and Irvine DEI committee member"</li>
+
+            </div>
+
+            </div>
+
+            <Footer/>
+        }
 }
 
 #[component]
 fn EndorsementHome() -> impl IntoView {
-    view!{
+    view! {
         <div class="w-full px-32 py-8 md:py-16">
                 <p class="font-bold text-octaorange text-lg md:text-xl">"Endorsements"</p>
 
@@ -255,7 +254,7 @@ fn EndorsementHome() -> impl IntoView {
                 img={String::from("/assets/oc-action.png")}
                 name={String::from("OC Action")}
                 />
-                   
+
                     <OrgEndorse
                     img={String::from("/assets/rise.png")}
                     name={String::from("Remake Irvine Streets for All")}
@@ -297,7 +296,7 @@ fn WhyAynHome() -> impl IntoView {
                 "Ayn Craciun is a proven community leader, environmental health advocate, Democrat and working mom. Ayn is running for Irvine City Council to create a safer and more sustainable Irvine for everyone, providing a check on corporate special interests in our city."</p>
                 <br/>
                 <p>"Ayn has a well-established track record of speaking truth to power and winning change that brings lasting benefits to our community -- especially families. Ayn will focus city resources on actions that make our streets safer, our air cleaner, reduce traffic and increase affordable, climate-friendly housing and energy."</p>
-           
+
                 <br/>
                <a class="hover:underline" href="/meet-ayn"><button class="bg-octablue text-white hover:bg-blue-500 font-bold py-2 px-2 rounded-lg">"Learn more about Ayn"</button> </a>
             </div>
@@ -307,10 +306,10 @@ fn WhyAynHome() -> impl IntoView {
 
 #[component]
 fn WhyAynPage() -> impl IntoView {
-    view!{
-        
+    view! {
+
         <Navbar/>
-      
+
       <div class="mx-4 md:mx-12">
       <div class="text-2xl">"About Ayn"</div>
       <div class="flex flex-col md:flex-row w-full sm:w-auto mx-auto ">
@@ -319,7 +318,7 @@ fn WhyAynPage() -> impl IntoView {
       />
       </div>
      <div class="px-16 ">
-     
+
      <p>"Ayn Craciun is a proven community leader, environmental health advocate,  successful business woman, and working mom. Ayn has a well-established track record of winning changes that protect our health and bring lasting community benefits."
       </p>
       <br/>
@@ -386,12 +385,12 @@ fn HomePage() -> impl IntoView {
         <h1 class="text-xl md:text-2xl font-bold text-white">"Vote for Ayn Craciun for
         Irvine City Council"</h1>
         <p class="text-white">"Ayn is an environmental health advocate, working mom, and Democrat ready to deliver results for Irvine families."</p>
-        
+
         <div class="flex flex-row mt-2 gap-x-2">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">
         <div class="font-bold bg-octaorange text-white px-4 py-2 rounded-md">"Volunteer"</div></a>
             <a href="https://www.efundraisingconnections.com/c/AynCraciun">
-            
+
             <div class="font-bold text-octaorange bg-white px-4 py-2 rounded-md">"Donate"</div>
             </a>
         </div>
@@ -401,7 +400,7 @@ fn HomePage() -> impl IntoView {
 
         <WhyAynHome/>
         <EndorsementHome/>
-        
+
         <Footer/>
     }
 }
