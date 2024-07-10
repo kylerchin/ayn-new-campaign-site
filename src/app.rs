@@ -394,7 +394,7 @@ fn EventsPage() -> impl IntoView {
 
                 <a href="https://forms.gle/ZMq8fyFcpfwCxZw3A">
 
-            <div class="font-bold text-octaorange bg-white px-4 py-2 rounded-md">"RSVP"</div>
+            <div class="font-bold bg-octaorange text-white px-4 py-2 rounded-md">"RSVP"</div>
             </a>
 
                 </div>
