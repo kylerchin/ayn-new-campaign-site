@@ -423,7 +423,8 @@ fn NotFound() -> impl IntoView {
     }
 
     view! {
+        <Navbar/>
         <h1>"Ooops! We couldn't find this page!"</h1>
-        <p>"Perhaps it is wherever Mike Carroll is as well?"</p>
+        <Footer/>
     }
 }
