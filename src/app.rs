@@ -22,6 +22,8 @@ pub fn Navbar() -> impl IntoView {
                 <div class="ml-auto flex-row gap-x-3 align-middle items-center hidden md:flex">
                     <a href="/meet-ayn">"About Ayn"</a>
                     <a href="/endorsements">"Endorsements"</a>
+
+                    <a href="/events">"Events"</a>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
                     <a href="https://www.efundraisingconnections.com/c/AynCraciun">
                 <div class="font-bold bg-octaorange text-white px-3 py-1.5 rounded-md">"Donate"</div>
@@ -36,6 +38,7 @@ pub fn Navbar() -> impl IntoView {
                         <div class="flex flex-col gap-y-2 underline px-4">
                         <a href="/why-ayn" class="hover:text-blue-800">"About Ayn"</a>
                     <a href="/endorsements"  class="hover:text-blue-800">"Endorsements"</a>
+                    <a href="/events"  class="hover:text-blue-800">"Events"</a>
                     <a  class="hover:text-blue-800" href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
                     <a  class="hover:text-blue-800" href="https://www.efundraisingconnections.com/c/AynCraciun">"Donate"</a></div>
 
@@ -67,12 +70,13 @@ pub fn App() -> impl IntoView {
 
             // content for this welcome page
             <Router>
-                <main>
+                <main class="h-full">
                     <Routes>
                         <Route path="" view=HomePage/>
                         <Route path="meet-ayn" view=WhyAynPage/>
                         <Route path="/*any" view=NotFound/>
                         <Route path="/endorsements" view=EndorsementPage/>
+                        <Route path="/events" view=EventsPage/>
                     </Routes>
                 </main>
             </Router>
@@ -82,7 +86,7 @@ pub fn App() -> impl IntoView {
 #[component]
 fn Footer() -> impl IntoView {
     view! {
-        <div class="w-full bg-octablue text-white text-center py-8 flex flex-col items-center px-8">
+        <div class="mt-auto w-full bg-octablue text-white text-center py-8 flex flex-col items-center px-8">
             <div class="py-2 lg:py-6 px-2 border-white border-2 mx-auto lg:w-1/2">"Paid for by Ayn Craciun for Council 2024 FPPC #1464914"</div>
 
             <p>"For campaign inquires please contact: ayn@ayn4irvine.com"</p>
@@ -288,7 +292,7 @@ fn EndorsementHome() -> impl IntoView {
 #[component]
 fn WhyAynHome() -> impl IntoView {
     view! {
-        <div class="w-full flex flex-col md:flex-row">
+        <div class="w-full flex flex-col md:flex-row ">
             <img class="w-full aspect-video md:aspect-auto md:w-2/5 why-ayn-img bg-center bg-cover"/>
             <div class="py-16 px-32 md:w-3/5">
                 <p class="text-lg font-bold">"Why Ayn"</p>
@@ -307,48 +311,49 @@ fn WhyAynHome() -> impl IntoView {
 #[component]
 fn WhyAynPage() -> impl IntoView {
     view! {
+    <div class="flex flex-col h-full">
 
-        <Navbar/>
+    <Navbar/>
 
-      <div class="mx-4 md:mx-12">
-      <div class="text-2xl">"About Ayn"</div>
-      <div class="flex flex-col md:flex-row w-full sm:w-auto mx-auto ">
-      <div class="">
-      <img   class="md:max-w-md" src={"/assets/AynFull@KorinnePhoto-9.jpg"}
-      />
-      </div>
-     <div class="px-16 ">
+    <div class="mx-4 md:mx-12">
+    <div class="text-2xl">"About Ayn"</div>
+    <div class="flex flex-col md:flex-row w-full sm:w-auto mx-auto ">
+    <div class="">
+    <img class="md:max-w-md" src={"/assets/AynFull@KorinnePhoto-9.jpg"}
+    />
+    </div>
+    <div class="px-16 ">
 
-     <p>"Ayn Craciun is a proven community leader, environmental health advocate,  successful business woman, and working mom. Ayn has a well-established track record of winning changes that protect our health and bring lasting community benefits."
-      </p>
-      <br/>
-      <p>"Ayn is a Democrat who believes our government should reflect and serve the needs of the people and small businesses, not special interests or corporate donors. Ayn has spoken out against corruption in local public agencies, and in 2023 the Orange County Register named Ayn among the most influential people in Orange County."</p>
-      <br/>  <p>
-     "Ayn chairs of the City of Irvine Sustainability Commission, and is the OC Policy Director for a nonprofit climate policy watchdog that provides transparency and accountability on climate action by local governments. Ayn played a pivotal role in creating the Orange County Power Authority, bringing clean energy choice to OC for the first time ever. Ayn also helped win Irvine's policy to end the use of harmful fossil gas in new buildings -- a first in OC, and the recently approved ban on noisy, polluting gas-powered leaf blowers in the city."
-     </p>
-     <br/>
-      <p>
-      "Ayn is also an advocate for safe, climate-friendly transportation. In 2023, she helped University High School parents win safe bus transportation for southeast Irvine kids to University High School for the first time ever."
-      </p>
-      <br/>
-      <p>
-      "In 2016, after learning that three Quail Hill children had been diagnosed with brain tumors, Ayn partnered with other parents and UCI scientists to found Non Toxic Irvine and win an organic landscaping policy for the City of Irvine, which was recognized for excellence by the California Environmental Protection Agency. Ayn wrote a how-to guide and helped people from all over the U.S., other OC cities and several Irvine HOAs including Hidden Canyon and Laguna Altura win organic landscaping policies for their communities. "
-      </p>
-      <br/>
-      <p>
-      "Ayn works in coalition with dozens of environmental, small businesses, religious, and community organizations in support of critical local climate policy decisions. She believes everyone deserves safety and equality, and will fight to protect the freedom of people of all races, ethnicities, religions, sexual orientations and gender identities."</p>
-      <br/>
-      <p>"Ayn served as president of her HOA for four years, ensuring a balanced budget and well-managed community services throughout her leadership. Ayn is also a past president of the Southeast Irvine MOMS club, former PTA committee chair, and frequent room mom at her kids’ elementary school."</p>
-      <br/>
-      <p>"Ayn and her husband Joe, an attorney and small business owner, have lived in Quail Hill for 20 years. Their two adorable school-aged children attend Irvine public schools."</p>
-     </div>
+    <p>"Ayn Craciun is a proven community leader, environmental health advocate,  successful business woman, and working mom. Ayn has a well-established track record of winning changes that protect our health and bring lasting community benefits."
+    </p>
+    <br/>
+    <p>"Ayn is a Democrat who believes our government should reflect and serve the needs of the people and small businesses, not special interests or corporate donors. Ayn has spoken out against corruption in local public agencies, and in 2023 the Orange County Register named Ayn among the most influential people in Orange County."</p>
+    <br/>  <p>
+    "Ayn chairs of the City of Irvine Sustainability Commission, and is the OC Policy Director for a nonprofit climate policy watchdog that provides transparency and accountability on climate action by local governments. Ayn played a pivotal role in creating the Orange County Power Authority, bringing clean energy choice to OC for the first time ever. Ayn also helped win Irvine's policy to end the use of harmful fossil gas in new buildings -- a first in OC, and the recently approved ban on noisy, polluting gas-powered leaf blowers in the city."
+    </p>
+    <br/>
+    <p>
+    "Ayn is also an advocate for safe, climate-friendly transportation. In 2023, she helped University High School parents win safe bus transportation for southeast Irvine kids to University High School for the first time ever."
+    </p>
+    <br/>
+    <p>
+    "In 2016, after learning that three Quail Hill children had been diagnosed with brain tumors, Ayn partnered with other parents and UCI scientists to found Non Toxic Irvine and win an organic landscaping policy for the City of Irvine, which was recognized for excellence by the California Environmental Protection Agency. Ayn wrote a how-to guide and helped people from all over the U.S., other OC cities and several Irvine HOAs including Hidden Canyon and Laguna Altura win organic landscaping policies for their communities. "
+    </p>
+    <br/>
+    <p>
+    "Ayn works in coalition with dozens of environmental, small businesses, religious, and community organizations in support of critical local climate policy decisions. She believes everyone deserves safety and equality, and will fight to protect the freedom of people of all races, ethnicities, religions, sexual orientations and gender identities."</p>
+    <br/>
+    <p>"Ayn served as president of her HOA for four years, ensuring a balanced budget and well-managed community services throughout her leadership. Ayn is also a past president of the Southeast Irvine MOMS club, former PTA committee chair, and frequent room mom at her kids’ elementary school."</p>
+    <br/>
+    <p>"Ayn and her husband Joe, an attorney and small business owner, have lived in Quail Hill for 20 years. Their two adorable school-aged children attend Irvine public schools."</p>
+    </div>
 
-     </div>
-      </div>
+    </div>
+    </div>
 
-       <Footer/>
+     <Footer/></div>
 
-    }
+        }
 }
 
 #[component]
@@ -367,6 +372,35 @@ fn PersonEndorse(img: String, name: String, position: String, position2: String)
         <p class="font-bold">{name.clone()}</p>
         <p>{position}</p>
         <p>{position2}</p>
+        </div>
+    }
+}
+
+#[component]
+fn EventsPage() -> impl IntoView {
+    view! {
+        <div class="h-full flex flex-col">
+            <Navbar/>
+            <div class="w-full">
+                <div class="mx-4 md:mx-auto md:max-w-2xl">
+
+                <h1 class="text-lg text-octaorange font-bold">"Events"</h1>
+
+                <p class="text-octablue">"Sunday, July 21"</p>
+
+                <img src="/assets/eventturtlerock.jpg" alt="Join us to meet Ayn Craciun, an excellent candidate to represent Turtle Rock. Refreshments provided." class="max-w-sm"/>
+        <br/>
+        <p class="text-bold">"Turtle Rock Meet and Greet with Ayn Craciun"</p>
+
+                <a href="https://forms.gle/ZMq8fyFcpfwCxZw3A">
+
+            <div class="font-bold text-octaorange bg-white px-4 py-2 rounded-md">"RSVP"</div>
+            </a>
+
+                </div>
+            </div>
+            <br/>
+            <Footer/>
         </div>
     }
 }
