@@ -390,7 +390,7 @@ fn EventsPage() -> impl IntoView {
 
                 <img src="/assets/eventturtlerock.jpg" alt="Join us to meet Ayn Craciun, an excellent candidate to represent Turtle Rock. Refreshments provided." class="max-w-sm"/>
         <br/>
-        <p class="text-bold">"Turtle Rock Meet and Greet with Ayn Craciun"</p>
+        <p class="font-bold">"Turtle Rock Meet and Greet with Ayn Craciun"</p>
 
                 <a href="https://forms.gle/ZMq8fyFcpfwCxZw3A">
 
