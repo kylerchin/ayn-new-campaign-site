@@ -170,20 +170,25 @@ fn EndorsementPage() -> impl IntoView {
             </div>
 
 
-            <p class="text-octaorange text-lg">"Elected Officials"</p>
+            <p class="text-octaorange text-lg">"Community Organizations"</p>
 
             <div>
 
             <li>"Democratic Party of Orange County"</li>
 
+
             <li>"Moms Demand Action"</li>
 
             <li>"OC Action"</li>
+
+            
+            <li>"Women in Leadership"</li>
 
             <li>"Sunrise Movement, Orange County"</li>
 
             <li>"RISE (Remake Irvine Streets for Everyone)"</li>
 
+            <p class="text-octaorange text-lg">"Community Members"</p>
             <li>"Branda Lin, City of Irvine Planning Commissioner and Irvine Watchdog Co-founder"</li>
 
             <li>"Dr. Jessica Pratt, UCI professor and Irvine resident"</li>
@@ -253,10 +258,15 @@ fn EndorsementHome() -> impl IntoView {
                 </div>
                 <br/>
 
-                <div class="flex flex-col md:flex-row gap-x-4 lg:gap-x-7 w-full align-top md:items-start">
+                <div class="flex flex-col gap-y-2 md:flex-row gap-x-4 lg:gap-x-7 w-full align-top md:items-start">
                 <OrgEndorse
                 img={String::from("/assets/oc-action.png")}
                 name={String::from("OC Action")}
+                />
+
+                <OrgEndorse
+                img={String::from("/assets/wil-header-2019.png")}
+                name={String::from("Women in Leadership")}
                 />
 
                     <OrgEndorse
@@ -294,7 +304,7 @@ fn WhyAynHome() -> impl IntoView {
     view! {
         <div class="w-full flex flex-col md:flex-row ">
             <img class="w-full aspect-video md:aspect-auto md:w-2/5 why-ayn-img bg-center bg-cover"/>
-            <div class="py-16 px-32 md:w-3/5">
+            <div class="py-16 px-12 lg:px-32 md:w-3/5">
                 <p class="text-lg font-bold">"Why Ayn"</p>
                 <p>
                 "Ayn Craciun is a proven community leader, environmental health advocate, Democrat and working mom. Ayn is running for Irvine City Council to create a safer and more sustainable Irvine for everyone, providing a check on corporate special interests in our city."</p>
@@ -384,9 +394,9 @@ fn EventsPage() -> impl IntoView {
             <div class="w-full">
                 <div class="mx-4 md:mx-auto md:max-w-2xl">
 
-                <h1 class="text-lg text-octaorange font-bold">"Events"</h1>
+                <h1 class="text-lg md:text-2xl text-octaorange font-bold">"Events"</h1>
 
-                <p class="text-octablue">"Sunday, July 21"</p>
+                <p class="text-octablue font-bold">"Sunday, July 21"</p>
 
                 <img src="/assets/eventturtlerock.jpg" alt="Join us to meet Ayn Craciun, an excellent candidate to represent Turtle Rock. Refreshments provided." class="max-w-sm"/>
         <br/>
@@ -413,7 +423,7 @@ fn HomePage() -> impl IntoView {
     view! {
         <Navbar/>
         <div
-       class="mainhero w-full bg-center text-white bg-cover py-64"
+       class="mainhero w-full bg-center text-white bg-cover py-32 md:py-64"
         >
         <div class="w-1/2 ml-8 md:ml-16 lg:ml-32 2xl:ml-64 md:w-96">
         <h1 class="text-xl md:text-2xl font-bold text-white">"Vote for Ayn Craciun for
