@@ -49,7 +49,7 @@ pub fn Navbar() -> impl IntoView {
                 move || if navbar_open.get() {
                     view!{
                         <div class="flex flex-col gap-y-2 underline px-4">
-                        <a href="/why-ayn" class="hover:text-blue-800">"About Ayn"</a>
+                        <a href="/about-ayn" class="hover:text-blue-800">"About Ayn"</a>
                     <a href="/endorsements"  class="hover:text-blue-800">"Endorsements"</a>
                     <a href="/events"  class="hover:text-blue-800">"Events"</a>
                     <a  class="hover:text-blue-800" href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
