@@ -49,7 +49,7 @@ pub fn Navbar() -> impl IntoView {
                 move || if navbar_open.get() {
                     view!{
                         <div class="flex flex-col gap-y-2 underline px-4">
-                        <a href="/about-ayn" class="hover:text-blue-800">"About Ayn"</a>
+                        <a href="/meet-ayn" class="hover:text-blue-800">"About Ayn"</a>
                     <a href="/endorsements"  class="hover:text-blue-800">"Endorsements"</a>
                     <a href="/events"  class="hover:text-blue-800">"Events"</a>
                     <a  class="hover:text-blue-800" href="https://docs.google.com/forms/d/e/1FAIpQLSdZ1mzVYlWSv3M_wOI3q5YlQZeN22NKNVAZ9Hf47ueARc-cig/viewform">"Volunteer"</a>
@@ -409,8 +409,7 @@ fn EventsPage() -> impl IntoView {
 
                 <h1 class="text-lg md:text-2xl text-octaorange font-bold">"Events"</h1>
 
-                <br/>
-                <h1 class="text-lg md:text-2xl text-octaorange font-bold">"Previous Events"</h1>
+                
 
                 <p class="text-octablue font-bold">"Sunday, July 21"</p>
 
@@ -422,6 +421,8 @@ fn EventsPage() -> impl IntoView {
 
             <button class="font-bold bg-octaorange text-white px-4 py-2 rounded-md">"RSVP"</button>
             </a>
+
+            <h1 class="text-lg md:text-2xl text-octaorange font-bold">"Previous Events"</h1>
 
                 </div>
             </div>
