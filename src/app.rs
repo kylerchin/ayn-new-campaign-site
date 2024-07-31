@@ -413,7 +413,7 @@ fn EventsPage() -> impl IntoView {
 
                 <img src="/assets/canvass-08-03.jpg"  class="max-w-sm"/>
 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdB3wWXIruOH2NGb8PPEuUGKrfYHxq9KvvzZeceFmjKaSVmXA/viewform?usp=sf_link">
+                <a href="https://forms.gle/7mLNJL6PYXzbopiHA">
 
                 <button class="font-bold bg-octaorange text-white px-4 py-2 rounded-md">"RSVP"</button>
                 </a>
