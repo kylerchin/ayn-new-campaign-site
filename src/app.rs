@@ -409,20 +409,26 @@ fn EventsPage() -> impl IntoView {
 
                 <h1 class="text-lg md:text-2xl text-octaorange font-bold">"Events"</h1>
 
-                
+                <p class="text-octablue font-bold">"Saturday, August 3"</p>
 
-                <p class="text-octablue font-bold">"Sunday, July 21"</p>
-
-                <img src="/assets/eventturtlerock.jpg" alt="Join us to meet Ayn Craciun, an excellent candidate to represent Turtle Rock. Refreshments provided." class="max-w-sm"/>
-        <br/>
-        <p class="font-bold">"Turtle Rock Meet and Greet with Ayn Craciun"</p>
+                <img src="/assets/canvass-08-03.jpg"  class="max-w-sm"/>
 
                 <a href="https://forms.gle/ZMq8fyFcpfwCxZw3A">
 
-            <button class="font-bold bg-octaorange text-white px-4 py-2 rounded-md">"RSVP"</button>
-            </a>
+                <button class="font-bold bg-octaorange text-white px-4 py-2 rounded-md">"RSVP"</button>
+                </a>
+
+                
 
             <h1 class="text-lg md:text-2xl text-octaorange font-bold">"Previous Events"</h1>
+
+            <p class="text-octablue font-bold">"Sunday, July 21"</p>
+
+            <img src="/assets/eventturtlerock.jpg" alt="Join us to meet Ayn Craciun, an excellent candidate to represent Turtle Rock. Refreshments provided." class="max-w-sm"/>
+    <br/>
+    <p class="font-bold">"Turtle Rock Meet and Greet with Ayn Craciun"</p>
+
+           
 
                 </div>
             </div>
